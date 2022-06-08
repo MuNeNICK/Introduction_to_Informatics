@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 #define N 6
 
@@ -27,16 +26,39 @@ void dfs(int i){
     }
 }
 
-int main(){
-    int i;
+int main(int argc, char *argv[]){
+  int i, j;
 
-    dfs(1);
+  /* 隣接行列を出力する */
+  printf("Adjacency Matrix:\n");
+  for(i = 1; i <= N; i++){
+    for(j = 1; j <=N; j++){
+      printf("%d ", a[i][j]);
+    }
     printf("\n");
-    return 0;
+  }
+
+  for(i = 1; i <= N; i++){
+    v[i] = 0;
+  }
+
+  printf("\nOutput Graph:\n");
+  dfs(1);
+  printf("\n");
+  
+  return 0;
 }
 
 /*
-PS C:\Users\mune0\Documents\GitHub\Introduction_to_Informatics> .\Depth-first-search.exe
+C:\Users\mune0\Documents\GitHub\Introduction_to_Informatics>a.exe
+Adjacency Matrix:
+0 1 0 1 1 0
+1 0 1 0 0 0
+0 1 0 0 0 0
+1 0 0 0 1 1
+1 0 0 1 0 1
+0 0 0 1 1 0
 
-1->2 2->3 1->4 4->5 5->6 
+Output Graph:
+1->2 2->3 1->4 4->5 5->6
 */
